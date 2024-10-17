@@ -1,25 +1,35 @@
 body {
-    background-color: rgb(54, 54, 54);
+    background-image: url(assets/img/realTree.jpg);
     font-family: 'Times New Roman', Times, serif;
+    background-size: cover; /* Makes sure the image covers the entire viewport */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed during scrolling */
+    background-color: rgb(54, 54, 54); /* Fallback color */
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 nav {
-    /* background-color: white; */
-    width: 75%;
+    background-color: rgb(23, 23, 23);
+
+    /* height: 0px; */
+    width: 100%;
     margin: 0 auto; /* Centers nav horizontally */
     text-align: center;
 }
 .navTop {
+
     display: flex;
     justify-content: center; /* Centers the name and logo horizontally */
-    gap: 20px; /* Adds space between the name and logo */
+    gap: 20px; /*Adds space between the name and logo */
     align-items: center;
     padding: 3px 0;
 }
 .navTop h1 {
-    color: rgb(247, 247, 247);
+    margin-top: 40px;
+    margin-bottom: 5px;
+    color: rgb(255, 103, 0);
     font-size: 2rem;
 }
 .navBottom {
@@ -31,31 +41,58 @@ nav {
     border-bottom: 1.5px solid black;
     width: 80%;
     margin: 0 auto;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 .navBottom a {
     font-weight: bolder;
-    text-decoration: underline;
-    color: rgb(153, 153, 153);
+    text-decoration: underline;    
+    color: rgb(255, 255, 255);
     font-size: 1.2rem;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
-    display: inline-block;
+    padding: 8px 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     min-height: 40px; /* Set a minimum height to avoid layout shift */
-    line-height: 40px; /* Ensure vertical alignment stays consistent */
     box-sizing: border-box; /* Ensures padding and borders don't affect element size */
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
 }
 .navBottom a:hover,
 .navBottom a.active{
     text-decoration: none;
-    color: rgb(247, 247, 247);
-    font-size: 1.4 rem;
-    border: 2px solid rgb(0, 0, 0);
-    padding: 5px 15px;
+    color: rgb(255, 103, 0);
+    /* outline: 2px solid rgb(0, 0, 0); */
     background-color: rgba(153, 153, 153, 0.7);
 }
 .navBottom a:not(:hover):not(.active) {
     text-decoration: none;
     
+}
+.footer {
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    text-align: center; /* Center the footer content */
+    position: relative; /* Allow it to be placed below the content */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    gap: 20px; /* Space between icons */
+    margin-top: 0px; /* Space between the glass and the footer */
+}
+
+.social-icon {
+    background-color: rgb(255, 103, 0);
+    border-radius: 8px;
+    width: 30px; /* Adjust icon size */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s; /* Add transition for hover effect */
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Scale up the icon on hover */
 }
 .video-title {
     text-align: center; /* Centers the title */
@@ -67,10 +104,10 @@ nav {
 .video-container {
     width: 60%; /* Width of the video container */
     max-width: 1000px;
-    margin: 0 auto; /* Centers the video container */
+    margin: 20px auto; /* Centers the video container */
     position: relative;
-    padding-bottom: 0; /* This maintains a 16:9 aspect ratio */
-    height: 60vh;
+    padding-bottom: 56.25%; /* This maintains a 16:9 aspect ratio */
+    height: 0;
 }
 .video-container iframe {
     position: absolute;
@@ -81,9 +118,83 @@ nav {
     border: none;
 }
 
-@media screen and (max-height: 600px) {
-    .video-container {
-        width: 100%;
-        padding-bottom: calc(100vh - 100px);
+@media screen and (max-width: 1024px) {
+    .navBottom {
+        width: 70%;
+        gap: 4vw;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .navBottom {
+        gap: 3vw;
+        width: 80%;
+    }
+
+    .navBottom a {
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+    .video-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navBottom {
+        width: 90%;
+        gap: 2vw;
+    }
+
+    .navBottom a {
+        font-size: 1rem;
+        padding: 5px;
+    }
+    .video-container {
+        width: 90%;
+    }
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the frosted glass horizontally */
+    justify-content: center; /* Center the content vertically */
+    height: calc(70vh); /*Adjust height for nav bar*/
+
+}
+.main-flex-container {
+    width: 70%;
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+
+    /*Frosted glass*/
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+}
+
+#bio-pic {
+    height: 250px;   
+    max-width: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+#bio-text {
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    width: 40%;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    flex-shrink: 1;
 }
