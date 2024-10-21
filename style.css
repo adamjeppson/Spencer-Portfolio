@@ -115,20 +115,27 @@ nav {
 }
 .video-container {
     display: flex;
-    width: 80vw; /* Adjust to be responsive based on the viewport width */
-    height: 45vw; /* Maintain the 16:9 aspect ratio (45vw is 16:9 for 80vw width) */
-    max-width: 1000px; /* Limit the width for larger screens */
-    max-height: 562.5px; /* Corresponding height for a max-width of 1000px (16:9 ratio) */
-    margin: 20px auto; /* Center the video */
+    width: 30%; /* Adjust this width as needed */
+    max-width: 800px; /* Optional max width for larger screens */
+    margin: 20px auto; /* Centers the video container */
     position: relative;
+    padding-bottom: 56.25%; /* Adjusted for 4:3 aspect ratio; use 56.25% for 16:9 */
+    overflow: hidden; /* Ensures no overflow */
+
+
 }
 
-.video-container iframe {
+.video-container video {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
-    object-fit: fill; /* Ensure the video fills the entire container */
+    object-fit: contain; /* Ensures the video covers the entire container */
 }
+
 
 @media screen and (max-width: 1024px) {
     .navBottom {
@@ -156,7 +163,7 @@ nav {
         padding: 8px;
     }
     .video-container {
-        width: 80%;
+        width: 30%;
     }
     .main-flex-container {
         background: rgb(255, 255, 255); /* Solid white background for readability */
@@ -169,7 +176,7 @@ nav {
 
     #bio-text {
         color: rgb(30, 30, 30); /* Darker text */
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for better contrast */
+
     }
 }
 
@@ -184,7 +191,7 @@ nav {
         padding: 5px;
     }
     .video-container {
-        width: 90%;
+        width: 30%;
     }
     .main-flex-container {
         background: rgb(255, 255, 255); /* Ensure it remains solid on very small screens */
