@@ -186,7 +186,7 @@ nav {
     padding: 10px;
 
     /*Frosted glass*/
-    background: rgba(255, 255, 255, 0.4);
+    background: white;
     backdrop-filter: blur(4px);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
