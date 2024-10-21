@@ -291,7 +291,7 @@ button:hover {
     }
     .video-container {
         width: 40%;
-        height: 40%;
+        height: 15%;
     }
     .main-flex-container {
         background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
@@ -318,8 +318,8 @@ button:hover {
         padding: 5px;
     }
     .video-container {
-        width: 40%;
-        height: 40%;
+        width: 35%;
+        height: 5%;
     }
     .main-flex-container {
         background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
