@@ -3,7 +3,7 @@ html,body {
     background-image: url(assets/img/realTree.jpg);
     font-family: 'Times New Roman', Times, serif;
     background-size: cover; /* Makes sure the image covers the entire viewport */
-    background-position: center; /* Centers the background image */
+    background-position: auto; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed; /* Keeps the background image fixed during scrolling */
     background-color: rgb(54, 54, 54); /* Fallback color */
@@ -116,13 +116,11 @@ nav {
 .video-container {
     display: flex;
     width: 30%; /* Adjust this width as needed */
-    max-width: 800px; /* Optional max width for larger screens */
+    max-width: 800px; 
     margin: 20px auto; /* Centers the video container */
     position: relative;
     padding-bottom: 56.25%; /* Adjusted for 4:3 aspect ratio; use 56.25% for 16:9 */
     overflow: hidden; /* Ensures no overflow */
-
-
 }
 
 .video-container video {
@@ -133,79 +131,8 @@ nav {
     width: 100%;
     height: 100%;
     border: none;
-    object-fit: contain; /* Ensures the video covers the entire container */
 }
 
-
-@media screen and (max-width: 1024px) {
-    .navBottom {
-        width: 70%;
-        gap: 4vw;
-    }
-    .main-flex-container {
-        background: rgba(255, 255, 255); /* Slightly less transparent */
-        backdrop-filter: blur(7);
-    }
-    .frosted-container {
-        background: rgb(255, 255, 255); /* Solid white background for readability */
-        backdrop-filter: blur(7);
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    .navBottom {
-        gap: 3vw;
-        width: 80%;
-    }
-    .navBottom a {
-        font-size: 1.1rem;
-        padding: 8px;
-    }
-    .video-container {
-        width: 30%;
-    }
-    .main-flex-container {
-        background: rgb(255, 255, 255); /* Solid white background for readability */
-        backdrop-filter: blur(7);
-    }
-    .frosted-container {
-        background: rgb(255, 255, 255); /* Solid white background for readability */
-        backdrop-filter: blur(7);
-    }
-
-    #bio-text {
-        color: rgb(30, 30, 30); /* Darker text */
-
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .navBottom {
-        width: 90%;
-        gap: 2vw;
-    }
-
-    .navBottom a {
-        font-size: 1rem;
-        padding: 5px;
-    }
-    .video-container {
-        width: 30%;
-    }
-    .main-flex-container {
-        background: rgb(255, 255, 255); /* Ensure it remains solid on very small screens */
-        backdrop-filter: blur(7);
-    }
-    .frosted-container {
-        background: rgb(255, 255, 255); /* Solid white background for readability */
-        backdrop-filter: blur(7);
-    }
-    #bio-text {
-        color: rgb(30, 30, 30); /* Keep darker text */
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Keep shadow for readability */
-    }
-}
 .main-content {
     display: flex;
     flex: 1; /* Ensures the main content grows as needed */
@@ -336,4 +263,73 @@ button:hover {
 
 #bio-link:hover {
     text-decoration: underline;
+}
+@media screen and (max-width: 1024px) {
+    .navBottom {
+        width: 70%;
+        gap: 4vw;
+    }
+    .main-flex-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+    .frosted-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .navBottom {
+        gap: 3vw;
+        width: 80%;
+    }
+    .navBottom a {
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+    .video-container {
+        width: 40%;
+        height: 40%;
+    }
+    .main-flex-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+    .frosted-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+
+    #bio-text {
+        color: rgb(30, 30, 30); /* Darker text */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navBottom {
+        width: 90%;
+        gap: 2vw;
+    }
+
+    .navBottom a {
+        font-size: 1rem;
+        padding: 5px;
+    }
+    .video-container {
+        width: 40%;
+        height: 40%;
+    }
+    .main-flex-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+    .frosted-container {
+        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
+        backdrop-filter: blur(8px); /* Frosted glass effect */
+    }
+    #bio-text {
+        color: rgb(30, 30, 30); /* Keep darker text */
+    }
 }
