@@ -136,10 +136,12 @@ nav {
         gap: 4vw;
     }
     .main-flex-container {
-        background: rgba(255, 255, 255, 0.7); /* Slightly less transparent */
+        background: rgba(255, 255, 255); /* Slightly less transparent */
+        backdrop-filter: blur(7);
     }
     .frosted-container {
         background: rgb(255, 255, 255); /* Solid white background for readability */
+        backdrop-filter: blur(7);
     }
 }
 
@@ -158,9 +160,11 @@ nav {
     }
     .main-flex-container {
         background: rgb(255, 255, 255); /* Solid white background for readability */
+        backdrop-filter: blur(7);
     }
     .frosted-container {
         background: rgb(255, 255, 255); /* Solid white background for readability */
+        backdrop-filter: blur(7);
     }
 
     #bio-text {
@@ -184,9 +188,11 @@ nav {
     }
     .main-flex-container {
         background: rgb(255, 255, 255); /* Ensure it remains solid on very small screens */
+        backdrop-filter: blur(7);
     }
     .frosted-container {
         background: rgb(255, 255, 255); /* Solid white background for readability */
+        backdrop-filter: blur(7);
     }
     #bio-text {
         color: rgb(30, 30, 30); /* Keep darker text */
