@@ -32,12 +32,14 @@ nav {
 
     display: flex;
     justify-content: center; /* Centers the name and logo horizontally */
-    gap: 20px; /*Adds space between the name and logo */
     align-items: center;
-    padding: 3px 0;
+    gap: 0px; /*Adds space between the name and logo */
+    align-items: center;
+    padding: 3px;
 }
 .navTop h1, a {
-    margin-top: 40px;
+    margin-top: 20px;
+
     margin-bottom: 5px;
     color: rgb(255, 103, 0);
     font-size: 2rem;
@@ -120,7 +122,7 @@ nav {
     max-width: 800px; 
     margin: 20px auto; /* Centers the video container */
     position: relative;
-    padding-bottom: 56.25%; /* Adjusted for 4:3 aspect ratio; use 56.25% for 16:9 */
+    padding-bottom: 56.25%; 
     overflow: hidden; /* Ensures no overflow */
 }
 
@@ -152,12 +154,8 @@ nav {
     align-items: center;
     gap: 20px;
     padding: 10px;
-
-    /*Frosted glass*/
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0);
 
     /* dynamic height adjustment */
     min-height: 350px;
@@ -176,7 +174,7 @@ nav {
 }
 
 #bio-text {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 1.2rem;
     width: 40%;
     display: block;
@@ -186,34 +184,38 @@ nav {
 #bio-text a {
     font-size: 1.2rem;
 }
-.frosted-container {
+
+.contact-container {
     display: flex;
-    width: auto; 
-    max-width: 1000px;
     justify-content: space-evenly; /* Space between the image and the form */
-    align-items: center; /* Aligns items to the top */
-    gap: 20px; /* Space between items */
-    padding: 10px; /* Adds padding for aesthetics */
-    background: rgba(255, 255, 255, 0.3); /* Frosted glass background */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
-    border-radius: 8px; /* Rounds the corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds shadow */
-    flex-wrap: wrap;
+    align-items: stretch; /* Ensure both image and form have equal height */
+    gap: 20px; /* Space between image and form */
+    padding: 10px;
+    background: rgb(0, 0, 0); /* Frosted glass background */
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    flex-wrap: wrap; /* Allow the items to wrap when needed */
 }
 
 #contact-pic {
-    height: 250px;   
-    max-width: 100%;
-    border-radius: 12px; /* Rounds corners for the image */
-    object-fit: cover; /* Ensures the image covers its box */
-    flex-shrink: 0; /* Prevents the image from shrinking */
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Max width to avoid too large on larger screens */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 #contact-form {
-    flex: 1; /* Allows the form to take remaining space */
-    max-width: 400px; /* Optional: Limits the width of the form */
+    flex: 1; /* Take remaining space */
+    max-width: 400px; /* Form width limit */
+    width: 100%; /* Make form take up the full width of its container */
 }
-
+.contact-header {
+    width: 100%;
+    text-align:center;
+}
 /* Form Styles */
 form {
     display: flex;
@@ -222,6 +224,7 @@ form {
     align-items: stretch;
 }
 h2 {
+    color: white;
     font-weight: 500;
     font-size: 1.2rem;
     margin: 3px;
@@ -230,10 +233,10 @@ h2 {
 input, textarea {
     padding: 10px; /* Adds padding inside inputs */
     margin-bottom: 10px; /* Adds space below each input */
-    border: 1px solid #ccc; /* Adds border to inputs */
+    border: 1px solid #ccc;
     border-radius: 4px; /* Rounds the corners */
     width: calc(100% - 22px); /* Makes inputs full width */
-    background-color: rgba(255, 255, 255, 0.6); /* Softer white background */
+    background-color: rgb(170, 169, 169); 
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem; 
 }
@@ -241,7 +244,7 @@ input, textarea {
 /* Placeholder Styles */
 input::placeholder,
 textarea::placeholder {
-    color: rgba(0, 0, 0, 0.5); /* Softer color for placeholders */
+    color: rgba(0, 0, 0); /* Softer color for placeholders */
 }
 
 /* Button Styles */
@@ -265,7 +268,7 @@ button:hover {
 }
 
 #bio-link {
-    color: rgb(150, 61, 1);
+    color: rgb(255, 103, 0);
     text-decoration: none;
     font-style: italic;
 }
@@ -278,13 +281,17 @@ button:hover {
         width: 70%;
         gap: 4vw;
     }
-    .main-flex-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
+
+    .contact-container {
+        flex-direction: column; /* Stack the elements vertically on smaller screens */
+        align-items: center; /* Center items when stacked */
     }
-    .frosted-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
+    #contact-pic {
+        max-width: 100%; /* Full width image on smaller screens */
+        height: auto; /* Ensure the image maintains aspect ratio */
+    }
+    #contact-form {
+        max-width: 100%; /* Full width form on smaller screens */
     }
 }
 
@@ -302,18 +309,17 @@ button:hover {
         width: 40%;
         height: 15%;
     }
-    .main-flex-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
+    .contact-container {
+        padding: 15px; /* Adjust padding */
     }
-    .frosted-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
+    #contact-pic {
+        max-width: 100%;
+        height: auto; /* Ensure the image scales properly */
+    }
+    #contact-form {
+        max-width: 100%;
     }
 
-    #bio-text {
-        color: rgb(30, 30, 30); /* Darker text */
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -330,15 +336,5 @@ button:hover {
         width: 35%;
         height: 5%;
     }
-    .main-flex-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
-    }
-    .frosted-container {
-        background: rgba(255, 255, 255, 0.5); /* Frosted glass background */
-        backdrop-filter: blur(8px); /* Frosted glass effect */
-    }
-    #bio-text {
-        color: rgb(30, 30, 30); /* Keep darker text */
-    }
+
 }
