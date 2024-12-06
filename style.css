@@ -38,12 +38,27 @@ nav {
     padding: 3px;
 }
 .navTop h1, a {
+    position: relative;
     margin-top: 20px;
-
     margin-bottom: 5px;
     color: rgb(255, 103, 0);
+    text-shadow: 0px 0px #000000;
     font-size: 2rem;
     text-decoration: none;
+    z-index: 1;
+}
+.navTop h1::before {
+    content: ""; /* Empty content for decoration */
+    position: absolute;
+    width: 110px; /* Adjust to fit the PNG size */
+    height: 110px;
+    background-image: url('assets/logoWhite.png'); /* Replace with the actual file path */
+    background-size: cover; /* Ensures the image scales properly */
+    background-position: center;
+    top: 50%; /* Center the PNG vertically */
+    left: 50%; /* Center the PNG horizontally */
+    transform: translate(-50%, -50%); /* Fine-tune centering */
+    z-index: 0; /* Places the PNG behind the text */
 }
 .navBottom {
     display: flex;
@@ -106,6 +121,16 @@ nav {
 
 }
 
+.footer-logo {
+    width: auto; /* Adjust icon size */
+    height: 35px;
+    margin-bottom: 0px;
+    transition: transform 0.3s;
+    align-self: center;
+}
+.footer-logo:hover {
+    transform: scale(1.2); 
+}
 .social-icon:hover {
     transform: scale(1.2); /* Scale up the icon on hover */
 }
@@ -336,5 +361,4 @@ button:hover {
         width: 35%;
         height: 5%;
     }
-
 }
