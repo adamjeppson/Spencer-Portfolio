@@ -92,6 +92,7 @@ nav {
     color: rgb(255, 103, 0);
     /* outline: 2px solid rgb(0, 0, 0); */
     background-color: rgba(153, 153, 153, 0.7);
+    transition: 0.5s
 }
 .navBottom a:not(:hover):not(.active) {
     text-decoration: none;
@@ -290,6 +291,7 @@ button {
 
 button:hover {
     background-color: rgb(200, 80, 0); /* Changes color on hover */
+    transition: 0.5s;
 }
 
 #bio-link {
