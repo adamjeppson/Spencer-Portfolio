@@ -13,18 +13,33 @@
 <body>
     <nav>
         <div class="navTop">
-            <h1><a href="index.html">Spencer Jeppson</a></h1>
+            <h1><a href="/index.html">Spencer Jeppson</a></h1>
         </div>
         <div class="navBottom">
-            <a href="index.html">Demos</a>
-            <a href="bio.html">Bio</a>
-            <a href="contact.html">Contact</a>
+            <a href="\index.html">Demo Reel</a>
+            <div class="dropdown">
+                <a href="project_pages/project1.html" class="dropbtn" onclick="toggleDropdown(event)">Projects</a>
+                <div class="dropdown-content">
+                    <a href="project_pages/project1.html">BFG</a>
+                    <a href="project_pages/project2.html">Haunt Audio</a>
+                    <a href="project_pages/project3.html">Nothing</a>
+                    <a href="project_pages/project4.html">Angel Eyes</a>
+                    <a href="project_pages/project5.html">Soldier</a>
+                    <a href="project_pages/project6.html">Jackknife</a>
+                    <a href="project_pages/project7.html">Pedalboard</a>
+                    <a href="project_pages/project8.html">TLWB</a>
+                </div>
+            </div>
+            <a href="\bio.html">Bio</a>
+            <a href="\contact.html">Contact</a>
         </div>
     </nav>
     <div class="main-content">    
         <div class="main-flex-container">
             <img id="bio-pic" src="assets/img/spenjer.jpg">
-            <div id="bio-text">Hello, my name is Spencer Jeppson! I’m a student at Utah Valley University currently studying digital audio and sound engineering. I build and design effects pedals at <a id="bio-link" href="https://www.instagram.com/haunt.audio?igsh=MTVieXZ5M2piZDU0aw==" target="_blank">Haunt Audio</a> and I work as a sound engineer at the Covey Center for the Arts in Provo, Utah. In my free time, I play bass in the bands <a id="bio-link" href="https://www.instagram.com/momdadandme_?igsh=MTdvdjRsNHc3cHN5bw==" target="_blank">Mom Dad & Me</a>, and <a id="bio-link" href="https://www.instagram.com/headabovewater.band?igsh=cWM1emV4bDhxbjc5" target="_blank">Head Above Water</a>.</div>
+            <div id="bio-text">Hello, I am Spencer Jeppson, a prospective DAPR student at UVU. I have been attending UVU for 3 years with the goal of applying for the audio program and completion of a bachelor's degree in digital audio. I am currently employed at The Covey Center for the Arts as an Audio Engineer in their 680 seat theatre. I build and repair audio effects and hardware as <a id="bio-link" href="https://www.instagram.com/haunt.audio?igsh=MTVieXZ5M2piZDU0aw==" target="_blank">Haunt Audio</a>
+                and intend to further my progression in hardware and circuit design and implementation, with goals to design and hand build small batch boutique audio effects. I am currently working towards designing and releasing self produced effects on custom ordered PCB’s, handbuilt in small batches. I am an active participant in the local music scene, playing bass in a couple bands. Upon graduation, I intend to seek employment in a studio setting, working with musicians to engineer and produce music. My long term career goals include a lifelong commitment to audio immersion and learning.  I will continue creating, building, modifying, and  repairing audio gear as long as I’m able to hold a soldering iron. I plan to continue Haunt Audio and design and release a line of handbuilt pedals that is focused on putting high quality and unique effects into the hands of musicians who are pushing boundaries of what music sounds like. I admire and look up to producers in the punk /  hardcore scene such as Will Yip, Jon Markson, Seth Henderson and Brett Romnes. I intend to work towards a career in producing music in this specific sphere, working with bands in this genre and scene. 
+               </div>
         </div>
     </div>
 
@@ -39,5 +54,6 @@
             </a>
         </div>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>

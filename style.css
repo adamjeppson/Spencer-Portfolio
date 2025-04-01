@@ -26,7 +26,7 @@ nav {
     width: 100%;
     margin: 0 auto; /* Centers nav horizontally */
     text-align: center;
-    /* padding: 10px 0; */
+    margin-bottom: 10px;
 }
 .navTop {
 
@@ -48,22 +48,21 @@ nav {
     z-index: 1;
 }
 .navTop h1::before {
-    content: ""; /* Empty content for decoration */
+    content: "";
     position: absolute;
-    width: 110px; /* Adjust to fit the PNG size */
+    width: 110px; 
     height: 110px;
-    background-image: url('assets/logoWhite.png'); /* Replace with the actual file path */
+    background-image: url('assets/logoWhite.png'); 
     background-size: cover; /* Ensures the image scales properly */
     background-position: center;
-    top: 50%; /* Center the PNG vertically */
-    left: 50%; /* Center the PNG horizontally */
-    transform: translate(-50%, -50%); /* Fine-tune centering */
-    z-index: 0; /* Places the PNG behind the text */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 0; 
 }
 .navBottom {
     display: flex;
-    justify-content: center; /* Evenly spaces the links */
-    gap: 125px;
+    justify-content: center; 
     padding: 3px 0;
     position: relative;
     width: 80%;
@@ -71,9 +70,14 @@ nav {
     flex-wrap: wrap;
     transition: all 0.3s ease;
 }
-.navBottom a {
+/* Styles for the entire navbar links */
+.navBottom a,
+.dropdown, .dropbtn {
+    position: relative;
     font-weight: bolder;
-    text-decoration: underline;    
+    text-decoration: underline !important;
+    text-underline-offset: 7px;
+    text-decoration-color: rgb(88, 88, 88) !important;    
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
     padding: 8px 10px;
@@ -85,19 +89,81 @@ nav {
     text-align: center;
     flex-grow: 1;
     white-space: nowrap;
+    max-width: 150px;
 }
+
+/* Specifically style the "Projects" dropdown button */
+.dropdown .dropbtn {
+    position: relative;
+    padding: 10px 15px; 
+    background-color: transparent; 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Highlight the active or hovered navbar items */
 .navBottom a:hover,
-.navBottom a.active{
+.navBottom a.active, 
+.dropdown:hover .dropbtn {
     text-decoration: none;
     color: rgb(255, 103, 0);
-    /* outline: 2px solid rgb(0, 0, 0); */
-    background-color: rgba(153, 153, 153, 0.7);
-    transition: 0.5s
+    background-color: rgba(153, 153, 153, 0.7); /* Same background as other items */
+    transition: 0.5s;
 }
-.navBottom a:not(:hover):not(.active) {
-    text-decoration: none;
+
+/* Ensure that the dropdown button "Projects" behaves the same */
+.dropdown:hover .dropbtn {
+    color: rgb(255, 103, 0); /* Same highlight color */
+    background-color: rgba(153, 153, 153, 0.7); /* Same background on hover */
+}
+
+/* Remove any extra space around the text of the "Projects" tab */
+.dropdown-content {
     
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+    top: 100%; 
+    background-color: rgb(23, 23, 23); 
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6), 
+                0px -4px 8px rgba(0, 0, 0, 0.6), 
+                4px 0px 8px rgba(0, 0, 0, 0.6), 
+                -4px 0px 8px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    flex-direction: row;
+    visibility: hidden; /* Start with visibility hidden */
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);  /* Initially hidden */
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; /* Animation */
 }
+
+.dropdown-content.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1); /* Reveal with scale */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a{
+    align-items: center;
+    margin: auto;
+    color: white;
+    padding: 15px;
+    display: block; /* Ensures each link is on a new line */
+    text-decoration: none;
+    text-align: center;
+    width: 100%; /* Makes sure links expand to full width */
+    white-space: nowrap; /* Prevents wrapping */
+}
+.dropdown a:hover .dropdown-content {
+    background-color: rgba(255, 103, 0, 0.7);
+
+}
+
 .footer {
     background: none; /* Transparent background */
     text-align: center; /* Center the footer content */
@@ -143,16 +209,10 @@ nav {
     color: rgb(154, 153, 153);
 }
 .video-container {
-    display: flex;
-    width: 30%; /* Adjust this width as needed */
-    max-width: 800px; 
-    margin: 20px auto; /* Centers the video container */
-    position: relative;
-    padding-bottom: 56.25%; 
-    overflow: hidden; /* Ensures no overflow */
+    display: hidden;
 }
 
-.video-container video {
+.video-container iframe {
     display: flex;
     position: absolute;
     top: 0;
@@ -160,12 +220,82 @@ nav {
     width: 100%;
     height: 100%;
     border: none;
+    object-fit: fill;
 }
 
+.video-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: rgb(0, 0, 0);
+    width: 70%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 2vmin; /* Dynamic padding based on viewport */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Enhanced Video Wrapper with Aspect Ratio Protection */
+.video-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 96%; /* Slight margin by default */
+    padding: 10px;
+    padding-bottom: 52%;
+    max-width: 96%; /* Matches width */
+    transition: all 0.3s ease; /* Smooth resizing */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 20px);
+    border: none;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+/* Smart Responsive Behavior */
+@media (min-width: 768px) {
+    .video-wrapper {
+        width: 98%;
+        max-width: 98%;
+        padding-bottom: 55.125%; /* 16:9 with 98% width */
+    }
+}
+
+@media (min-width: 1024px) {
+    .video-page-container {
+        padding: 1.5vmin;
+    }
+    .video-wrapper {
+        width: 99%;
+        max-width: 99%;
+        padding-bottom: 55.6875%; /* 16:9 with 99% width */
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1200px) {
+    /* Special tall screen optimization */
+    .video-page-container {
+        padding: 1vmin;
+    }
+    .video-wrapper {
+        width: 99.5%;
+        max-width: 99.5%;
+    }
+}
 .main-content {
     display: flex;
-    flex: 1; /* Ensures the main content grows as needed */
-    padding:20px;
+    flex: 1; 
+    padding: 20px;
     justify-content: center;
     align-items: center;
     width: auto;
@@ -173,8 +303,10 @@ nav {
 }
 .main-flex-container {
     width: auto;
-    max-width: 600px;
+    max-width: 700px;
+    margin: 0 60px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content:space-evenly;
     align-items: center;
@@ -193,7 +325,7 @@ nav {
     height: auto; 
     max-height: 300px;  
     max-width: 100%;
-    /* display: block; */
+    margin-top: 10px;
     border-radius: 6px;
     object-fit: cover;
     flex-shrink: 0;
@@ -202,10 +334,12 @@ nav {
 #bio-text {
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
-    width: 40%;
+    width: 80%;
     display: block;
     text-align: center;
     flex-shrink: 1;
+    margin-bottom: 10px;
+    line-height: 130%;
 }
 #bio-text a {
     font-size: 1.2rem;
@@ -303,6 +437,186 @@ button:hover {
 #bio-link:hover {
     text-decoration: underline;
 }
+
+/* project page styles */
+.project-page {
+    display: flex;
+    min-height: calc(95vh - 120px); /* Adjust based on your nav/footer */
+    align-items: center;
+    position: relative;
+    /* justify-content: space-between; */
+}
+
+
+.project-page__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+
+
+}
+
+
+.project-page__text {
+    text-align: justify;
+    flex: 1;
+    padding: 30px;
+    color: white;
+}
+
+
+.project-page__media {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.project-page__video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+
+.project-page__video {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 20px);
+    border: none;
+    border-radius: 6px;
+}
+
+
+/* Navigation arrows - won't affect other pages */
+.project-page__nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100px;
+    color: rgb(255, 103, 0);
+    cursor: pointer;
+}
+
+
+.project-page__nav--left {
+    left: 20px;
+}
+
+
+.project-page__nav--right {
+    right: 20px;
+}
+
+
+.project-page__nav-text {
+    /* writing-mode: vertical-rl; */
+    margin: 10px 0;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 103, 0);
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.nav-arrow:hover {
+    background-color: rgb(200, 80, 0);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+
+.project-video-container {
+    width: 100%; /* Adjust this percentage to make it smaller/larger */
+    max-width: 600px; /* Optional: sets a maximum size */
+    margin: 0;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(0.9); /* Scales down the video while maintaining aspect ratio */
+    transform-origin: center center;
+}
+
+/* Adjust main container to accommodate video */
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-video-container {
+        margin-bottom: 15px;
+    }
+    
+    .main-flex-container {
+        margin: 0 40px;
+        padding: 0px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-page__container {
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .project-page__nav {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        margin: 20px;
+    }
+    
+    .project-page__nav-text {
+        writing-mode: horizontal-tb;
+        margin: 0 10px;
+    }
+}
+
+
 @media screen and (max-width: 1024px) {
     .navBottom {
         width: 70%;

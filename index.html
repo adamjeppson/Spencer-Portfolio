@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spencer Jeppson - Demo Reel</title>
-    <meta name="description" content="View demo reel">
+    <meta name="description" content="Here's a sample of some of my audio projects!">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link href="style.css" rel="stylesheet" />
 
@@ -12,22 +12,36 @@
 <body>
     <nav>
         <div class="navTop">
-            <h1><a href="index.html">Spencer Jeppson</a></h1>
+            <h1><a href="/index.html">Spencer Jeppson</a></h1>
         </div>
         <div class="navBottom">
-            <a href="index.html">Demos</a>
-            <a href="bio.html">Bio</a>
-            <a href="contact.html">Contact</a>
+            <a href="\index.html">Demo Reel</a>
+            <div class="dropdown">
+                <a href="project_pages/project1.html" class="dropbtn" onclick="toggleDropdown(event)">Projects</a>
+                <div class="dropdown-content">
+                    <a href="project_pages/project1.html">BFG</a>
+                    <a href="project_pages/project2.html">Haunt Audio</a>
+                    <a href="project_pages/project3.html">Nothing</a>
+                    <a href="project_pages/project4.html">Angel Eyes</a>
+                    <a href="project_pages/project5.html">Soldier</a>
+                    <a href="project_pages/project6.html">Jackknife</a>
+                    <a href="project_pages/project7.html">Pedalboard</a>
+                    <a href="project_pages/project8.html">TLWB</a>
+                </div>
+            </div>
+            <a href="\bio.html">Bio</a>
+            <a href="\contact.html">Contact</a>
         </div>
     </nav>
     
-
-    <div class="video-container">
-        <video controls autoplay>
-            <source src="assets/JBASSKLON.mov">Your browser does not support the video
-        </video>
+    <div class="video-page-container">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/o16nVZvkU4U?si=cpz5Jm5IuUvs6zKH" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" 
+                    allowfullscreen></iframe>
+        </div>
     </div>
-    
 
 
     <footer class="footer">
@@ -42,5 +56,6 @@
 
         </div>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
